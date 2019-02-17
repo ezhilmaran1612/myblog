@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+	</head>
+	<body>
+		<div class="container">
+			<h1>Welcome to my Blog!</h1>
+			<a class="btn btn-md btn-primary" href="/create/">Create New Post</a><br><br>
+			<div style="display:flex; flex-wrap: wrap;">
+				{% for post in all_posts %}
+					<div class="card" style="width:300px; margin-right:10px; margin-bottom:10px">
+						<div class="card-body">
+							<h5 class="card-title">{{post.title}}</h5>
+							<span>Posted on {{post.timestamp|timesince}} ago</span><br>
+							<a href="/post/{{post.id}}" class="card-link">Read More</a>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	</body>
+</html>
